@@ -1,0 +1,30 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON rules
+        run: |
+          echo "Validating rule JSON files..."
+          for file in data/rules/*.json; do
+            cat "$file" | jq . > /dev/null
+          done
+
+      - name: Basic HTML check
+        run: |
+          echo "Checking index.html exists..."
+          test -f index.html
+
+      - name: Success
+        run: echo "Validation passed"
