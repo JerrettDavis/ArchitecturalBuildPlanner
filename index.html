@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ArchitecturalBuildPlanner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>ArchitecturalBuildPlanner - Wall Demo</h1>
+
+  <div class="controls">
+    <label>Length (ft): <input id="length" type="number" value="12"></label>
+    <label>Height (ft): <input id="height" type="number" value="8"></label>
+    <button onclick="run()">Generate</button>
+  </div>
+
+  <div class="views">
+    <canvas id="three"></canvas>
+    <svg id="plan"></svg>
+  </div>
+
+  <pre id="output"></pre>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
