@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArchitecturalBuildPlanner Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <div class="eyebrow">ArchitecturalBuildPlanner</div>
+        <h1>Wall Assembly Demo</h1>
+        <p class="lede">Rule-driven framing, live quantities, crisp 2D elevation, and a browser-native 3D wall you can orbit around.</p>
+      </div>
+
+      <section class="panel form-panel">
+        <div class="field-grid">
+          <label>
+            <span>Length (ft)</span>
+            <input id="length" type="number" min="1" step="0.5" value="12" />
+          </label>
+          <label>
+            <span>Height (ft)</span>
+            <input id="height" type="number" min="1" step="0.5" value="8" />
+          </label>
+        </div>
+
+        <div class="field-grid">
+          <label>
+            <span>Stud spacing</span>
+            <select id="spacingPreset">
+              <option value="12">12 in OC</option>
+              <option value="16" selected>16 in OC</option>
+              <option value="24">24 in OC</option>
+            </select>
+          </label>
+          <label>
+            <span>Drywall</span>
+            <select id="showDrywall">
+              <option value="true" selected>Show</option>
+              <option value="false">Hide</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="generateButton" class="primary">Generate wall</button>
+          <button id="exportButton" class="ghost">Export JSON</button>
+        </div>
+      </section>
+
+      <section class="panel stats-panel">
+        <h2>Takeoff</h2>
+        <div id="stats" class="stats"></div>
+      </section>
+
+      <section class="panel rules-panel">
+        <h2>Resolved model</h2>
+        <pre id="output"></pre>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <section class="view-card large-card">
+        <div class="card-header">
+          <h2>3D assembly</h2>
+          <span class="hint">Orbit with mouse, wheel to zoom</span>
+        </div>
+        <canvas id="three"></canvas>
+      </section>
+
+      <section class="view-card">
+        <div class="card-header">
+          <h2>2D elevation</h2>
+        </div>
+        <svg id="plan" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet"></svg>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
