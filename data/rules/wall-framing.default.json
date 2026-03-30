@@ -1,0 +1,8 @@
+{
+  "studSpacingInches": 16,
+  "plateCount": 2,
+  "drywallSheetWidth": 4,
+  "drywallSheetHeight": 8,
+  "screwsPerStud": 4,
+  "screwsPerSheet": 32
+}
